@@ -6,6 +6,14 @@ ScholarSleuth is a production-grade agentic system that searches, analyzes, comp
 
 ---
 
+## Demo
+
+![ScholarSleuth UI — agent calling tool_search_papers for a reinforcement learning query](demo.png)
+
+> The agent autonomously decides to call `tool_search_papers`, constructs the correct arguments, and returns ranked results from arXiv, Semantic Scholar, and OpenAlex — all from a single natural language question.
+
+---
+
 ## Architecture
 
 ```
