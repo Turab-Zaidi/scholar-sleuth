@@ -1,0 +1,70 @@
+{
+  "title": "ScholarSleuth Command Center",
+  "tags": ["scholarsleuth", "mcp", "production"],
+  "timezone": "browser",
+  "refresh": "5s",
+  "schemaVersion": 38,
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Tool Execution Rate (Calls per Minute)",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+      "targets": [
+        {
+          "expr": "sum by (tool) (rate(scholarsleuth_tool_calls_total[1m]) * 60)",
+          "legendFormat": "{{tool}}"
+        }
+      ],
+      "options": {
+        "legend": { "displayMode": "table", "placement": "right" }
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "API Failures & Rate Limits (per minute)",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
+      "targets": [
+        {
+          "expr": "sum by (source) (rate(scholarsleuth_api_failures_total[1m]) * 60)",
+          "legendFormat": "{{source}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "red"
+          }
+        }
+      }
+    },
+    {
+      "type": "stat",
+      "title": "Total Papers Saved to SQLite",
+      "gridPos": { "h": 6, "w": 8, "x": 0, "y": 8 },
+      "targets": [
+        {
+          "expr": "sum(scholarsleuth_db_writes_total)"
+        }
+      ],
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area"
+      }
+    },
+    {
+      "type": "barchart",
+      "title": "Searches by Academic Source",
+      "gridPos": { "h": 6, "w": 16, "x": 8, "y": 8 },
+      "targets": [
+        {
+          "expr": "sum by (source) (scholarsleuth_search_requests_total)",
+          "legendFormat": "{{source}}"
+        }
+      ],
+      "options": {
+        "orientation": "horizontal"
+      }
+    }
+  ]
+}
