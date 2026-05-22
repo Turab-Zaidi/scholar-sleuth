@@ -1,0 +1,1 @@
+# ScholarSleuth MCP Client Package

@@ -1,0 +1,31 @@
+# Virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+
+# Environment variables (contains secrets)
+.env
+
+# SQLite database (generated at runtime)
+scholarsleuth.db
+
+# Docker volumes (observability data)
+otel-lgtm-data/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Planning docs (not part of source)
+*.pdf

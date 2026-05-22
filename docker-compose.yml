@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  otel-lgtm:
+    image: grafana/otel-lgtm:0.6.0
+    container_name: otel-lgtm
+    ports:
+      - "3000:3000"     # Grafana UI
+      - "4317:4317"     # OTLP gRPC receiver
+      - "4318:4318"     # OTLP HTTP receiver
+      - "9090:9090"     # Prometheus UI
+    environment:
+      - OTEL_COLLECTOR_CONFIG=/etc/otelcol/config.yaml
+    volumes:
+      - ./otel-lgtm-data:/data
+    restart: unless-stopped
