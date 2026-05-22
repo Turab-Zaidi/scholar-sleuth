@@ -17,6 +17,11 @@
           "format": "table"
         }
       ],
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 0
+        }
+      },
       "options": {
         "orientation": "horizontal"
       }
@@ -35,6 +40,7 @@
       ],
       "fieldConfig": {
         "defaults": {
+          "decimals": 0,
           "color": {
             "mode": "fixed",
             "fixedColor": "red"

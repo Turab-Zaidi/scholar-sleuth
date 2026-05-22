@@ -99,6 +99,12 @@ Every tool call, API request, and database write is instrumented with OpenTeleme
 - **Metrics (Prometheus)**: Counters for tool calls, search requests, database writes, and API failures by source.
 - **Logs (Loki)**: Structured logs correlated to trace IDs for instant debugging.
 
+### Command Center Dashboard
+
+We have also built a specialized Grafana dashboard for real-time production monitoring. It natively visualizes your OpenTelemetry metrics, tracking tool execution counts, academic API rate-limit failures, and SQLite library writes over a 24-hour window.
+
+![ScholarSleuth Grafana Dashboard](dashboard.png)
+
 ---
 
 ## Quick Start

@@ -15,6 +15,7 @@ async def search_papers(query: str, limit: int = 5, source: str = "all") -> str:
     Search academic papers from multiple databases (Semantic Scholar, arXiv, OpenAlex).
     Saves results to the local SQLite database automatically.
     """
+    source = source.lower()
     search_counter.add(1, {"query": query, "source": source})
     tool_calls_counter.add(1, {"tool": "search_papers"})
 
@@ -28,7 +29,7 @@ async def search_papers(query: str, limit: int = 5, source: str = "all") -> str:
 
         # Build parallel tasks based on requested source
         tasks = []
-        if source in ("all", "semantic_scholar"):
+        if source in ("all", "semantic_scholar", "semanticscholar"):
             tasks.append(semantic_scholar.search(query, limit))
         if source in ("all", "arxiv"):
             tasks.append(arxiv_search.search(query, limit))
