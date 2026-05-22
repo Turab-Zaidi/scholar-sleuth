@@ -12,16 +12,13 @@
       "targets": [
         {
           "expr": "sum by (tool) (increase(scholarsleuth_tool_calls_total[24h]))",
-          "legendFormat": "{{tool}}"
+          "legendFormat": "{{tool}}",
+          "instant": true,
+          "format": "table"
         }
       ],
       "options": {
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": ["lastNotNull"],
-          "fields": "",
-          "values": false
-        }
+        "orientation": "horizontal"
       }
     },
     {
@@ -31,7 +28,9 @@
       "targets": [
         {
           "expr": "sum by (source) (increase(scholarsleuth_api_failures_total[24h]))",
-          "legendFormat": "{{source}}"
+          "legendFormat": "{{source}}",
+          "instant": true,
+          "format": "table"
         }
       ],
       "fieldConfig": {
@@ -43,12 +42,7 @@
         }
       },
       "options": {
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": ["lastNotNull"],
-          "fields": "",
-          "values": false
-        }
+        "orientation": "horizontal"
       }
     },
     {
@@ -57,17 +51,14 @@
       "gridPos": { "h": 6, "w": 8, "x": 0, "y": 8 },
       "targets": [
         {
-          "expr": "sum(scholarsleuth_db_writes_total)"
+          "expr": "sum(scholarsleuth_db_writes_total)",
+          "instant": true,
+          "format": "table"
         }
       ],
       "options": {
         "colorMode": "background",
-        "graphMode": "area",
-        "reduceOptions": {
-          "calcs": ["lastNotNull"],
-          "fields": "",
-          "values": false
-        }
+        "graphMode": "none"
       }
     },
     {
@@ -77,16 +68,13 @@
       "targets": [
         {
           "expr": "sum by (source) (scholarsleuth_search_requests_total)",
-          "legendFormat": "{{source}}"
+          "legendFormat": "{{source}}",
+          "instant": true,
+          "format": "table"
         }
       ],
       "options": {
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": ["lastNotNull"],
-          "fields": "",
-          "values": false
-        }
+        "orientation": "horizontal"
       }
     }
   ]
