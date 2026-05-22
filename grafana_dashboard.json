@@ -6,26 +6,26 @@
   "schemaVersion": 38,
   "panels": [
     {
-      "type": "timeseries",
-      "title": "Tool Execution Rate (Calls per Minute)",
+      "type": "barchart",
+      "title": "Tool Executions (Last 24h)",
       "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
       "targets": [
         {
-          "expr": "sum by (tool) (rate(scholarsleuth_tool_calls_total[1m]) * 60)",
+          "expr": "sum by (tool) (increase(scholarsleuth_tool_calls_total[24h]))",
           "legendFormat": "{{tool}}"
         }
       ],
       "options": {
-        "legend": { "displayMode": "table", "placement": "right" }
+        "orientation": "horizontal"
       }
     },
     {
-      "type": "timeseries",
-      "title": "API Failures & Rate Limits (per minute)",
+      "type": "barchart",
+      "title": "API Failures (Last 24h)",
       "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
       "targets": [
         {
-          "expr": "sum by (source) (rate(scholarsleuth_api_failures_total[1m]) * 60)",
+          "expr": "sum by (source) (increase(scholarsleuth_api_failures_total[24h]))",
           "legendFormat": "{{source}}"
         }
       ],
@@ -36,6 +36,9 @@
             "fixedColor": "red"
           }
         }
+      },
+      "options": {
+        "orientation": "horizontal"
       }
     },
     {
